@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.orderapp240410.databinding.FragmentPizzaBinding
@@ -24,10 +25,23 @@ class PizzaFragment : Fragment() {
         // Inflate the layout for this fragment
         Log.d("TAG", "onCreateView: Das Pizzafragment")
 
-        binding.pizzaList.adapter = PizzaAdapter(Pizza.pizzen)
+        val adapter = PizzaAdapter(Pizza.pizzen)
+        binding.pizzaList.adapter = adapter
 //        binding.pizzaList.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,true)
 //        binding.pizzaList.layoutManager = StaggeredGridLayoutManager(3,LinearLayoutManager.HORIZONTAL)
         binding.pizzaList.layoutManager = GridLayoutManager(activity,2)
+
+        adapter.setMyListener(object : PizzaAdapter.MyListener {
+            override fun onItemClick(position: Int) {
+                val pizza = adapter.pizzen[position]
+                Toast.makeText(
+                    activity,
+                    "Es wurde eine Pizza ${pizza.name} ausgewählt",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+
+        })
 
         return binding.root
     }

@@ -12,6 +12,17 @@ class PizzaAdapter(val pizzen: Array<Pizza>) : RecyclerView.Adapter<PizzaAdapter
 
     }
 
+    // implementierung des eigenen Listeners
+    interface MyListener{
+        fun onItemClick(position:Int)
+    }
+
+    private var myListener: MyListener? = null
+
+    fun setMyListener(myListener: MyListener){
+        this.myListener = myListener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val cardView = PizzaLayoutBinding.inflate(LayoutInflater.from(parent.context))
         return ViewHolder(cardView)
@@ -25,6 +36,9 @@ class PizzaAdapter(val pizzen: Array<Pizza>) : RecyclerView.Adapter<PizzaAdapter
         val imageView = cardView.imgItem
         val image = ContextCompat.getDrawable(imageView.context,pizzen[position].imageResource)
         imageView.setImageDrawable(image)
+        cardView.root.setOnClickListener{
+            myListener?.onItemClick(position)
+        }
     }
 }
 
