@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.orderapp240410.databinding.FragmentPizzaBinding
-import com.example.orderapp240410.model.Pizza
+import com.example.orderapp240410.model.ItemArrays
 import com.example.orderapp240410.util.PizzaAdapter
 
 
@@ -25,7 +25,7 @@ class PizzaFragment : Fragment() {
         // Inflate the layout for this fragment
         Log.d("TAG", "onCreateView: Das Pizzafragment")
 
-        val adapter = PizzaAdapter(Pizza.pizzen)
+        val adapter = PizzaAdapter(ItemArrays.pizzen)
         binding.pizzaList.adapter = adapter
 //        binding.pizzaList.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,true)
 //        binding.pizzaList.layoutManager = StaggeredGridLayoutManager(3,LinearLayoutManager.HORIZONTAL)
