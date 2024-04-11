@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">OrderApp240410</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="restaurant_name">Mein Restaurant</string>
+    <string name="restaurant_slogan">Das beste Essen der Stadt</string>
+
+    <string name="main_content">Das Restaurant ist bekannt für seine hervorragende italienische Küche und das freundliche Personal. Die Speisekarte bietet eine große Auswahl an Gerichten, darunter Antipasti, Pasta, Pizza und Fisch. Die Gnocchi in Tartufu-Sauce sind besonders empfehlenswert. Als Vorspeise gibt es Rollen aus Ricotta und Spinat in brauner Butter. Das Restaurant befindet sich am Strausberger Platz 2, 10243 Berlin.
+
+Das Ambiente ist gemütlich und einladend. Die Einrichtung ist modern und stilvoll. Das Restaurant ist auch für besondere Anlässe geeignet.
+
+Die Preise sind moderat und angemessen für die Qualität der Speisen und den Service. Das Restaurant ist täglich von 12 bis 23 Uhr geöffnet.
+    </string>
+    <string name="tab_leiste_context">Tab Leiste</string>
 </resources>
