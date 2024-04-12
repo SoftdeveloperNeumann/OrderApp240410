@@ -1,19 +1,18 @@
 package com.example.orderapp240410.ui.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.orderapp240410.databinding.FragmentItemBinding
 import com.example.orderapp240410.model.Item
-
 import com.example.orderapp240410.model.ItemArrays
+import com.example.orderapp240410.ui.DetailActivity
 import com.example.orderapp240410.util.ItemAdapter
-
 
 
 class ItemFragment : Fragment() {
@@ -46,11 +45,10 @@ class ItemFragment : Fragment() {
         adapter.setMyListener(object : ItemAdapter.MyListener {
             override fun onItemClick(position: Int) {
                 val item = adapter.items[position]
-                Toast.makeText(
-                    activity,
-                    "Es wurde eine Pizza ${item.name} ausgewählt",
-                    Toast.LENGTH_SHORT
-                ).show()
+                val intent = Intent(activity,DetailActivity::class.java)
+                intent.putExtra("name", item.name)
+                intent.putExtra("image", item.imageResource)
+                startActivity(intent)
             }
 
         })
