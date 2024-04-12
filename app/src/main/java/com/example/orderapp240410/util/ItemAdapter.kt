@@ -5,9 +5,9 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.orderapp240410.databinding.ItemLayoutBinding
-import com.example.orderapp240410.model.Pizza
+import com.example.orderapp240410.model.Item
 
-class ItemAdapter(val items: Array<Pizza>) : RecyclerView.Adapter<ItemAdapter.ViewHolder> (){
+class ItemAdapter(val items: Array<Item>) : RecyclerView.Adapter<ItemAdapter.ViewHolder> (){
     class ViewHolder(val binding: ItemLayoutBinding) : RecyclerView.ViewHolder(binding.root){
 
     }

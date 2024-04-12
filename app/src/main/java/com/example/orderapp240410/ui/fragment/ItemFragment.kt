@@ -9,8 +9,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.orderapp240410.databinding.FragmentItemBinding
+import com.example.orderapp240410.model.Item
+
 import com.example.orderapp240410.model.ItemArrays
 import com.example.orderapp240410.util.ItemAdapter
+
 
 
 class ItemFragment : Fragment() {
@@ -25,7 +28,16 @@ class ItemFragment : Fragment() {
         // Inflate the layout for this fragment
         Log.d("TAG", "onCreateView: Das Pizzafragment")
 
-        val adapter = ItemAdapter(ItemArrays.pizzen)
+        val kategorie = requireArguments().getInt("kategorie",0) //arguments?.getInt("kategorie") // die ältere Variante
+
+        val itemArray: Array<Item>? = when(kategorie){
+            1 -> ItemArrays.pizzen
+            2 -> ItemArrays.pasti
+            3 -> ItemArrays.drinks
+            else -> null
+        }
+
+        val adapter = ItemAdapter(itemArray!!)
         binding.itemList.adapter = adapter
 //        binding.pizzaList.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,true)
 //        binding.pizzaList.layoutManager = StaggeredGridLayoutManager(3,LinearLayoutManager.HORIZONTAL)
@@ -33,10 +45,10 @@ class ItemFragment : Fragment() {
 
         adapter.setMyListener(object : ItemAdapter.MyListener {
             override fun onItemClick(position: Int) {
-                val pizza = adapter.items[position]
+                val item = adapter.items[position]
                 Toast.makeText(
                     activity,
-                    "Es wurde eine Pizza ${pizza.name} ausgewählt",
+                    "Es wurde eine Pizza ${item.name} ausgewählt",
                     Toast.LENGTH_SHORT
                 ).show()
             }
