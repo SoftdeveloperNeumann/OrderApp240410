@@ -1,9 +1,9 @@
 package com.example.orderapp240410.model
 
 data class Drink (
-    val name:String,
-    val imageResource: Int
-    ) {
+    override val name:String,
+    override val imageResource: Int
+    ) :Item{
 //        companion object {
 //            val drinks = arrayOf(
 //                Drink("Drink 1", R.drawable.drink1),

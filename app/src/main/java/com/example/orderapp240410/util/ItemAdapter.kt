@@ -4,11 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.example.orderapp240410.databinding.PizzaLayoutBinding
+import com.example.orderapp240410.databinding.ItemLayoutBinding
 import com.example.orderapp240410.model.Pizza
 
-class PizzaAdapter(val pizzen: Array<Pizza>) : RecyclerView.Adapter<PizzaAdapter.ViewHolder> (){
-    class ViewHolder(val binding: PizzaLayoutBinding) : RecyclerView.ViewHolder(binding.root){
+class ItemAdapter(val items: Array<Pizza>) : RecyclerView.Adapter<ItemAdapter.ViewHolder> (){
+    class ViewHolder(val binding: ItemLayoutBinding) : RecyclerView.ViewHolder(binding.root){
 
     }
 
@@ -24,17 +24,17 @@ class PizzaAdapter(val pizzen: Array<Pizza>) : RecyclerView.Adapter<PizzaAdapter
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val cardView = PizzaLayoutBinding.inflate(LayoutInflater.from(parent.context))
+        val cardView = ItemLayoutBinding.inflate(LayoutInflater.from(parent.context))
         return ViewHolder(cardView)
     }
 
-    override fun getItemCount()= pizzen.size
+    override fun getItemCount()= items.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val cardView = holder.binding
-        cardView.tvItemName.text = pizzen[position].name
+        cardView.tvItemName.text = items[position].name
         val imageView = cardView.imgItem
-        val image = ContextCompat.getDrawable(imageView.context,pizzen[position].imageResource)
+        val image = ContextCompat.getDrawable(imageView.context,items[position].imageResource)
         imageView.setImageDrawable(image)
         cardView.root.setOnClickListener{
             myListener?.onItemClick(position)

@@ -8,32 +8,32 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.orderapp240410.databinding.FragmentPizzaBinding
+import com.example.orderapp240410.databinding.FragmentItemBinding
 import com.example.orderapp240410.model.ItemArrays
-import com.example.orderapp240410.util.PizzaAdapter
+import com.example.orderapp240410.util.ItemAdapter
 
 
-class PizzaFragment : Fragment() {
+class ItemFragment : Fragment() {
 
-    lateinit var binding: FragmentPizzaBinding
+    lateinit var binding: FragmentItemBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding= FragmentPizzaBinding.inflate(inflater,container,false)
+        binding= FragmentItemBinding.inflate(inflater,container,false)
         // Inflate the layout for this fragment
         Log.d("TAG", "onCreateView: Das Pizzafragment")
 
-        val adapter = PizzaAdapter(ItemArrays.pizzen)
-        binding.pizzaList.adapter = adapter
+        val adapter = ItemAdapter(ItemArrays.pizzen)
+        binding.itemList.adapter = adapter
 //        binding.pizzaList.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,true)
 //        binding.pizzaList.layoutManager = StaggeredGridLayoutManager(3,LinearLayoutManager.HORIZONTAL)
-        binding.pizzaList.layoutManager = GridLayoutManager(activity,2)
+        binding.itemList.layoutManager = GridLayoutManager(activity,2)
 
-        adapter.setMyListener(object : PizzaAdapter.MyListener {
+        adapter.setMyListener(object : ItemAdapter.MyListener {
             override fun onItemClick(position: Int) {
-                val pizza = adapter.pizzen[position]
+                val pizza = adapter.items[position]
                 Toast.makeText(
                     activity,
                     "Es wurde eine Pizza ${pizza.name} ausgewählt",

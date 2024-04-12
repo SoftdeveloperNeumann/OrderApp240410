@@ -2,9 +2,9 @@ package com.example.orderapp240410.model
 
 
 data class Pasta(
-    val name:String,
-    val imageResource: Int
-) {
+    override val name:String,
+    override val imageResource: Int
+) :Item{
 //    companion object{
 //        val pasti = arrayOf(
 //            Pasta("Nudeln 1", R.drawable.nudel1),

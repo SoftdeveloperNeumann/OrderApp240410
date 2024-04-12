@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.orderapp240410.databinding.ActivityMainBinding
 import com.example.orderapp240410.ui.fragment.MainFragment
-import com.example.orderapp240410.ui.fragment.PizzaFragment
+import com.example.orderapp240410.ui.fragment.ItemFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             override fun createFragment(position: Int): Fragment {
                return when(position){
                    0 -> MainFragment()
-                   1 -> PizzaFragment()
+                   1 -> ItemFragment()
                    else -> Fragment()
                }
             }
